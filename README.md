@@ -7,7 +7,7 @@ This is a fully-buildable example project for FullCalendar and Vue 3, leveraging
 ## Installation
 
 ```bash
-cd vue_calender
+cd vue_fullcalender_project/vue_calender
 npm install
 ```
 
