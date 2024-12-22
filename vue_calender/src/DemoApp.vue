@@ -43,9 +43,9 @@ export default defineComponent({
         selectable: true,
         selectMirror: true,
         dayMaxEvents: true,
-        weekends: true,
+        weekends: false,
         select: this.handleDateSelect,
-        // eventClick: this.handleEventClick,
+        eventClick: this.handleEventClick,
         // eventsSet: this.handleEvents,
         nowIndicator: true,
         locales: allLocales,
@@ -53,22 +53,17 @@ export default defineComponent({
         slotMinTime: "08:00:00",
         slotMaxTime: "22:00:00",
         height: "95%",
+        contentHeight:500,
         handleWindowResize: true,
         allDaySlot: false,
         expandRows: true,
-        eventMinHeight: 30,
+        // eventMinHeight: 30,
         weekNumbers: true,
         weekNumberCalculation: "ISO",
         selectable: false,
-        selectInfo: false,
+        selectInfo: true,
         stickyFooterScrollbar: false,
         displayEventTime:false,
-        // aspectRatio:2,
-        /* you can update a remote database when these fire:
-        eventAdd:
-        eventChange:
-        eventRemove:
-        */
       },
       currentEvents: [],
     };
@@ -79,15 +74,15 @@ export default defineComponent({
 
       //定义固定的颜色映射
       const courseColors = {
-        // 数据库系统原理: "#FF9800",
-        // Web前端开发技术: "#2196F3",
-        // Java程序设计: "#4CAF50",
-        // 计算机网络: "#9C27B0",
-        // 软件工程导论: "#E91E63",
-        // Linux操作系统应用: "#795548",
-        // 大学英语: "#607D8B",
-        // 中国近现代史纲要: "#FF5722",
-        // 形势与政策: "#009688",
+        数据库系统原理: "#FF9800",
+        Web前端开发技术: "#2196F3",
+        Java程序设计: "#4CAF50",
+        计算机网络: "#9C27B0",
+        软件工程导论: "#E91E63",
+        Linux操作系统应用: "#795548",
+        大学英语: "#607D8B",
+        中国近现代史纲要: "#FF5722",
+        形势与政策: "#009688",
       };
 
       scheduleData.forEach((weekData) => {
@@ -143,10 +138,10 @@ export default defineComponent({
     handleEventClick(clickInfo) {
       if (
         confirm(
-          `Are you sure you want to delete the event '${clickInfo.event.title}'`
+          `${clickInfo.event.title}`
         )
       ) {
-        clickInfo.event.remove();
+        location.reload();
       }
     },
     handleEvents(events) {
@@ -221,11 +216,11 @@ h2 {
 
 ul {
   margin: 0;
-  padding: 0 0 0 1.5em;
+  padding: 0 0 0 1em;
 }
 
 li {
-  margin: 1.5em 0;
+  margin: 1em 0;
   padding: 0;
 }
 
@@ -250,18 +245,26 @@ b {
 }
 
 .demo-app-sidebar-section {
-  padding: 2em;
+  padding: 1em;
 }
 
 .demo-app-main {
   flex-grow: 1;
-  padding: 3em;
+  padding: 2em;
 }
 
 .fc {
   /* the calendar root */
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.fc-event-main i {
+  font-size: 9px;
+}
+
+.fc-list-table i {
+  font-size: 13px;
 }
 
 button {
