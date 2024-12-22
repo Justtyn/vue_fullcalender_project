@@ -62,6 +62,7 @@ export default defineComponent({
         selectable: false,
         selectInfo: false,
         stickyFooterScrollbar: false,
+        displayEventTime:false,
         // aspectRatio:2,
         /* you can update a remote database when these fire:
         eventAdd:
