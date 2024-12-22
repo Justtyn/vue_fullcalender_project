@@ -260,7 +260,7 @@ b {
 }
 
 .fc-event-main i {
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .fc-list-table i {
